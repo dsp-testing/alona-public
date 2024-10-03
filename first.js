@@ -2080,7 +2080,7 @@ app.get('/some/path', function(req, res) {
 
 document.write(encodeURI(window.location.search));
 
-// Here's a different one
+    let regex = /^((www|beta)\.)?example\.com$/;
 app.get('/some/path', function(req, res) {
     let url = req.param('url'),
         host = urlLib.parse(url).host;
