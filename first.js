@@ -155,9 +155,10 @@ it was already in the code.
       , target = $this.attr('data-target')
         || e.preventDefault()
         || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
-      , option = $(target).data('collapse') ? 'toggle' : $this.data()
-    $this[$(target).hasClass('in') ? 'addClass' : 'removeClass']('collapsed')
-    $(target).collapse(option)
+      , targetElement = document.querySelector(target)
+        , option = targetElement && $(targetElement).data('collapse') ? 'toggle' : $this.data()
+    $this[targetElement && $(targetElement).hasClass('in') ? 'addClass' : 'removeClass']('collapsed')
+    targetElement && $(targetElement).collapse(option)
   })
 
 }(window.jQuery);
