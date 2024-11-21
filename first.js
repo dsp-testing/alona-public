@@ -197,9 +197,14 @@ app.get('/some/path', function(req, res) {
     let url = req.param('url'),
         host = urlLib.parse(url).host;
     // GOOD: the host of `url` is validated before redirecting
-    let expectedHost = "example.com";
-    if (host === expectedHost) {
+    const authorizedUrls = [
+        "https://example.com/some/path",
+        "https://example.com/another/path"
+    ];
+    if (authorizedUrls.includes(url)) {
         res.redirect(url);
+    } else {
+        res.redirect("/");
     }
 });
 
@@ -2076,7 +2081,7 @@ app.get('/some/path', function(req, res) {
 
 document.write(encodeURI(window.location.search));
 
-// Here's a different one
+    let regex = /^((www|beta)\.)?example\.com$/;
 app.get('/some/path', function(req, res) {
     let url = req.param('url'),
         host = urlLib.parse(url).host;
