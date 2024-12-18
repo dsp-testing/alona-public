@@ -1,3 +1,5 @@
+const urlLib = require('url');
+
 document.write(window.location.search);
 /*
 This ^^ causes an alert that won't be reported in the PR because
@@ -1117,6 +1119,16 @@ let userInput = document.createElement('div');
 userInput.textContent = window.location.search;
 document.body.appendChild(userInput);
 
+function isLocalUrl(path) {
+    try {
+        return (
+            new URL(path, "https://example.com").origin === "https://example.com"
+        );
+    } catch (e) {
+        return false;
+    }
+}
+
 // Here's a different one
 app.get('/some/path', function(req, res) {
     let url = req.param('url'),
@@ -1133,12 +1145,11 @@ document.write(encodeURI(window.location.search));
 
 // Here's a different one
 app.get('/some/path', function(req, res) {
-    let url = req.param('url'),
-        host = urlLib.parse(url).host;
-    // BAD: the host of `url` may be controlled by an attacker
-    let regex = /^((www|beta)\.)?example\.com/;
-    if (host.match(regex)) {
+    let url = req.param('url');
+    if (isLocalUrl(url)) {
         res.redirect(url);
+    } else {
+        res.redirect('/');
     }
 });
 
