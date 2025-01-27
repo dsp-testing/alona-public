@@ -2282,12 +2282,12 @@ document.write(window.location.search)
 // Here's a different one
 const urlLib = require('url');
 app.get('/some/path', function(req, res) {
-    let url = req.param('url'),
-        host = urlLib.parse(url).host;
-    // GOOD: the host of `url` is validated before redirecting
-    let expectedHost = "example.com";
-    if (host === expectedHost) {
+    const authorizedUrls = ["https://example.com/path1", "https://example.com/path2"];
+    let url = req.param('url');
+    if (authorizedUrls.includes(url)) {
         res.redirect(url);
+    } else {
+        res.redirect("/");
     }
 });
 
