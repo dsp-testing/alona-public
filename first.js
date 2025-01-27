@@ -2126,7 +2126,7 @@ it was already in the code.
     this.options = $.extend({}, $.fn.collapse.defaults, options)
 
     if (this.options.parent) {
-      this.$parent = $(this.options.parent)
+      this.$parent = $.find(this.options.parent)
     }
 
     this.options.toggle && this.toggle()
