@@ -1,4 +1,24 @@
+// 2
+require('crypto').createCipheriv('aes-256-cfb', '0123456789bbbbbb0123456789bbbbbb', '0123456789bbbbbb');
 
+
+// 3
+require('crypto').createCipheriv('aes-256-cfb', '0123456789cccccc0123456789cccccc', '0123456789cccccc');
+
+
+// 4
+require('crypto').createCipheriv('aes-256-cfb', '0123456789dddddd0123456789dddddd', '0123456789dddddd');
+
+
+// 5
+require('crypto').createCipheriv('aes-256-cfb', '0123456789eeeeee0123456789eeeeee', '0123456789eeeeee');
+
+
+// 6
+require('crypto').createCipheriv('aes-256-cfb', '0123456789ffffff0123456789ffffff', '0123456789ffffff');
+
+
+// 7
 t.test('refuse if package marked private', async t => {
   const { publish } = t.mock('..')
   const registry = new MockRegistry({
