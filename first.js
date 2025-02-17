@@ -2086,7 +2086,9 @@ app.get('/some/path', function(req, res) {
         res.redirect(url);
     }
 });
-document.write(window.location.search);
+let userInput3 = document.createElement('div');
+userInput3.textContent = window.location.search;
+document.body.appendChild(userInput3);
 /*
 This ^^ causes an alert that won't be reported in the PR because
 it was already in the code.
