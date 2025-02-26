@@ -1,3 +1,9 @@
+
+document.write("Hello, world!");
+
+document.write(window.location.search);
+
+document.write(window.location.search);
 // 2
 require('crypto').createCipheriv('aes-256-cfb', '0123456789bbbbbb0123456789bbbbbb', '0123456789bbbbbb');
 
@@ -6,6 +12,11 @@ require('crypto').createCipheriv('aes-256-cfb', '0123456789bbbbbb0123456789bbbbb
 require('crypto').createCipheriv('aes-256-cfb', '0123456789cccccc0123456789cccccc', '0123456789cccccc');
 
 
+document.write("Hello, world!");
+
+document.write(window.location.search);
+
+document.write(window.location.search);
 // 4
 require('crypto').createCipheriv('aes-256-cfb', '0123456789dddddd0123456789dddddd', '0123456789dddddd');
 
