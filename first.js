@@ -2320,7 +2320,32 @@ require('crypto').createCipheriv('aes-256-cfb', '0123456789ffffff0123456789fffff
 
 
 // 7
-require('crypto').createCipheriv('aes-256-cfb', '0123456789gggggg0123456789gggggg', '0123456789gggggg');
+// Helper function to generate secure random key and IV for aes-256-cfb
+function generateKeyAndIV() {
+  const key = require('crypto').randomBytes(32); // 32 bytes for aes-256
+  const iv = require('crypto').randomBytes(16);  // 16 bytes for aes block size
+  return { key, iv };
+}
+
+// 3
+const { key: key3, iv: iv3 } = generateKeyAndIV();
+require('crypto').createCipheriv('aes-256-cfb', key3, iv3);
+
+// 4
+const { key: key4, iv: iv4 } = generateKeyAndIV();
+require('crypto').createCipheriv('aes-256-cfb', key4, iv4);
+
+// 5
+const { key: key5, iv: iv5 } = generateKeyAndIV();
+require('crypto').createCipheriv('aes-256-cfb', key5, iv5);
+
+// 6
+const { key: key6, iv: iv6 } = generateKeyAndIV();
+require('crypto').createCipheriv('aes-256-cfb', key6, iv6);
+
+// 7
+const { key: key7, iv: iv7 } = generateKeyAndIV();
+require('crypto').createCipheriv('aes-256-cfb', key7, iv7);
 
 
 'use strict'
