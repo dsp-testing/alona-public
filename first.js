@@ -2277,7 +2277,15 @@ document.write(window.location.search);
 
 
 // It's a classic:
-document.write(window.location.search)
+var searchDiv2 = document.createElement('div');
+searchDiv2.textContent = window.location.search;
+document.body.appendChild(searchDiv2);
+
+
+// It's a classic:
+var searchDiv3 = document.createElement('div');
+searchDiv3.textContent = window.location.search;
+document.body.appendChild(searchDiv3);
 
 // Here's a different one
 const urlLib = require('url');
